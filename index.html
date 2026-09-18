@@ -1,165 +1,66 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uz">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>В разработке | Научный журнала "Academic Journal of Science and Progress"</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .welcome-container {
-            background: rgba(255, 255, 255, 0.98);
-            padding: 40px 35px;
-            border-radius: 16px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            width: 100%;
-            max-width: 480px;
-            text-align: center;
-            transform: translateY(0);
-            transition: all 0.3s ease;
-        }
-
-        .welcome-container:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .logo-placeholder {
-            width: 85px;
-            height: 85px;
-            background: #1e3c72;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 26px;
-            font-weight: bold;
-            margin: 0 auto 25px;
-            box-shadow: 0 4px 10px rgba(30, 60, 114, 0.3);
-        }
-
-        h1 {
-            color: #1e3c72;
-            font-size: 26px;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        p {
-            color: #4a5568;
-            font-size: 15px;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-
-        .badge {
-            display: inline-block;
-            background-color: #ebf8ff;
-            color: #2b6cb0;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        label {
-            display: block;
-            color: #4a5568;
-            margin-bottom: 8px;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        input[type="text"],
-        input[type="email"] {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            font-size: 15px;
-            transition: all 0.2s ease;
-            outline: none;
-        }
-
-        input[type="text"]:focus,
-        input[type="email"]:focus {
-            border-color: #1e3c72;
-            box-shadow: 0 0 0 3px rgba(30, 60, 114, 0.1);
-        }
-
-        button {
-            width: 100%;
-            padding: 14px;
-            background: #1e3c72;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.2s ease;
-            margin-top: 10px;
-        }
-
-        button:hover {
-            background: #162a50;
-        }
-
-        @media (max-width: 400px) {
-            .welcome-container {
-                padding: 30px 20px;
-            }
-            h1 {
-                font-size: 22px;
-            }
-        }
-    </style>
+    <title>Academic Journal of Science and Progress | Bosh sahifa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo-area">
+                <i class="fa-solid fa-atom logo-icon"></i>
+                <div>
+                    <div class="brand-title">Academic Journal</div>
+                    <div class="brand-subtitle">Science & Progress</div>
+                </div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Bosh sahifa</a></li>
+                    <li><a href="about.html">Jurnal haqida</a></li>
+                    <li><a href="authors.html">Mualliflarga</a></li>
+                    <li><a href="archive.html">Arxiv</a></li>
+                    <li><a href="payment.html">To'lov</a></li>
+                    <li><a href="contact.html">Aloqa</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <div class="welcome-container">
-        <div class="logo-placeholder">AJSP</div>
-        <span class="badge">В процессе разработки</span>
-        <h1>Добро пожаловать!</h1>
-        <p>Приветствуем вас на официальном сайте научного журнала <strong>"Academic Journal of Science and Progress"</strong>. Данный веб-сайт сейчас находится в процессе активной разработки. В ближайшие дни он полностью запустится в полноценном режиме.</p>
-        
-        <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Спасибо! Мы уведомим вас о полноценном запуске журнала.');">
-            <div class="form-group">
-                <label for="name">Ваше имя</label>
-                <input type="text" id="name" placeholder="Введите ваше имя" required autocomplete="off">
+    <section class="hero">
+        <div class="status-badge"><div class="pulse-dot"></div> Xalqaro Ilmiy Platforma</div>
+        <h1>Academic Journal of Science and Progress</h1>
+        <p>Fan, texnologiya va innovatsiyalarning dolzarb muammolarini yorituvchi yuqori indekslanuvchi xalqaro ilmiy-elektron portal.</p>
+    </section>
+
+    <div class="main-container">
+        <main>
+            <section class="card">
+                <h2><i class="fa-solid fa-circle-nodes"></i> Platforma haqida</h2>
+                <p style="color: var(--text-muted);"><strong>Academic Journal of Science and Progress</strong> – ilmiy tadqiqotlar va tajriba natijalarini xalqaro darajada tezkor chop etish uchun yaratilgan zamonaviy platforma.</p>
+                <div class="metrics-grid">
+                    <div class="metric-box"><div class="metric-value">Open Access</div><div class="metric-label">Ochiq kirish rejimi</div></div>
+                    <div class="metric-box"><div class="metric-value">Double-Blind</div><div class="metric-label">Mustaqil taqrizlash</div></div>
+                    <div class="metric-box"><div class="metric-value">Monthly</div><div class="metric-label">Oylik nashr davriyligi</div></div>
+                    <div class="metric-box"><div class="metric-value">Crossref DOI</div><div class="metric-label">Raqamli identifikatsiya</div></div>
+                </div>
+            </section>
+        </main>
+        <aside>
+            <div class="card">
+                <h3><i class="fa-solid fa-shield-halved"></i> Metrikalar</h3>
+                <div class="sidebar-item"><span class="sidebar-label">Muassis:</span><span class="sidebar-val">Project Progress</span></div>
+                <div class="sidebar-item"><span class="sidebar-label">Tillar:</span><span class="sidebar-val">UZ / EN / RU</span></div>
+                <div class="sidebar-item"><span class="sidebar-label">ISSN:</span><span class="sidebar-val" style="color: var(--accent-cyan);">Jarayonda</span></div>
             </div>
-            
-            <div class="form-group">
-                <label for="email">Электронная почта</label>
-                <input type="email" id="email" placeholder="example@mail.com" required autocomplete="off">
-            </div>
-            
-            <button type="submit">Уведомить о запуске</button>
-        </form>
+        </aside>
     </div>
 
+    <footer>&copy; 2026 Academic Journal of Science and Progress. Project Progress. Barcha huquqlar himoyalangan.</footer>
+    <script src="theme.js"></script>
 </body>
 </html>
