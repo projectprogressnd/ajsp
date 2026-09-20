@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <!-- Градиенты для технологичного сине-голубого свечения -->
+    <linearGradient id="orbitGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="100%" stop-color="#0077b6" />
+    </linearGradient>
+    
+    <linearGradient id="orbitGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38ef7d" />
+      <stop offset="100%" stop-color="#11998e" />
+    </linearGradient>
+
+    <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00f2fe" stop-opacity="1" />
+      <stop offset="50%" stop-color="#0d3b66" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#070d19" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Тень для объема -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Внешний динамический фоновый элемент (орбитали прогресса) -->
+  <g filter="url(#glow)">
+    <!-- Орбита 1 -->
+    <ellipse cx="250" cy="250" rx="180" ry="65" fill="none" stroke="url(#orbitGrad1)" stroke-width="12" stroke-linecap="round" transform="rotate(0 250 250)" />
+    <!-- Орбита 2 -->
+    <ellipse cx="250" cy="250" rx="180" ry="65" fill="none" stroke="url(#orbitGrad1)" stroke-width="12" stroke-linecap="round" transform="rotate(60 250 250)" />
+    <!-- Орбита 3 -->
+    <ellipse cx="250" cy="250" rx="180" ry="65" fill="none" stroke="url(#orbitGrad1)" stroke-width="12" stroke-linecap="round" transform="rotate(120 250 250)" />
+  </g>
+
+  <!-- Электроны / Узлы знаний на орбитах -->
+  <circle cx="430" cy="250" r="14" fill="#00f2fe" filter="url(#glow)" />
+  fill="#00f2fe"
+  <circle cx="160" cy="94" r="14" fill="#00f2fe" filter="url(#glow)" />
+  <circle cx="160" cy="406" r="14" fill="#00f2fe" filter="url(#glow)" />
+
+  <!-- Центральное ядро-кристалл (Символ научного центра) -->
+  <circle cx="250" cy="250" r="75" fill="url(#coreGlow)" />
+  
+  <!-- Геометрический квантовый ядро-многогранник -->
+  <polygon points="250,195 295,220 295,280 250,305 205,280 205,220" fill="none" stroke="#ffffff" stroke-width="6" stroke-linejoin="round" />
+  <polygon points="250,195 250,305" stroke="#ffffff" stroke-width="3" opacity="0.6" />
+  <polygon points="205,220 295,280" stroke="#ffffff" stroke-width="3" opacity="0.6" />
+  <polygon points="205,280 295,220" stroke="#ffffff" stroke-width="3" opacity="0.6" />
+
+  <!-- Центральный импульс -->
+  <circle cx="250" cy="250" r="16" fill="#ffffff" filter="url(#glow)" />
+</svg>
