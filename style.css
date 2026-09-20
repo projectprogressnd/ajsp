@@ -199,4 +199,8 @@ footer {
 @media (max-width: 900px) {
     .main-container { grid-template-columns: 1fr; }
     nav ul { flex-wrap: wrap; }
+}/* Принудительная закраска для иконок */
+.fa-solid, .fas {
+    font-family: "Font Awesome 6 Free", "Font Awesome 7 Free" !important;
+    font-weight: 900 !important;
 }
