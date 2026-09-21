@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Запрет индексации служебных скриптов и технических папок
+Disallow: /css/
+Disallow: /webfonts/
+
+# Указание на карту сайта для быстрой индексации
+Sitemap: https://ajsp.uz/sitemap.xml
