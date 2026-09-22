@@ -38,8 +38,62 @@
         <main>
             <section class="card">
                 <h2><i class="fa-solid fa-file-pen"></i> Mualliflarga ko'rsatmalar</h2>
-                <p style="color: var(--text-muted); margin-bottom: 15px;">Maqolalar MS Word (.docx) formatida, Times New Roman 12pt shriftda qabul qilinadi.</p>
+                
+                <!-- 1. Umumiy talablar -->
+                <div style="margin-bottom: 25px;">
+                    <h3 style="margin-bottom: 10px; color: var(--primary-navy);"><i class="fa-solid fa-circle-info"></i> 1. Umumiy talablar</h3>
+                    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 10px;">
+                        <strong>Academic Journal of Science and Progress</strong> jurnaliga ilgari e'lon qilinmagan va boshqa nashrlarga ko'rib chiqish uchun taqdim etilmagan original ilmiy maqolalar qabul qilinadi.
+                    </p>
+                    <ul style="color: var(--text-muted); line-height: 1.6; padding-left: 20px;">
+                        <li><strong>Maqola tili:</strong> O'zbek, rus yoki ingliz tili.</li>
+                        <li><strong>Hajmi:</strong> 6 sahifadan 15 sahifagacha.</li>
+                        <li><strong>Noyoblik darajasi (Anti-plagiat):</strong> Kamida <strong>80%</strong> bo'lishi talab etiladi. Barcha materiallar avtomatik tarzda tekshiriladi.</li>
+                    </ul>
+                </div>
+
+                <!-- 2. Rasmiylashtirish talablari -->
+                <div style="margin-bottom: 25px;">
+                    <h3 style="margin-bottom: 10px; color: var(--primary-navy);"><i class="fa-solid fa-sliders"></i> 2. Matnni rasmiylashtirish va formati</h3>
+                    <ul style="color: var(--text-muted); line-height: 1.6; padding-left: 20px;">
+                        <li><strong>Fayl formati:</strong> MS Word (.docx).</li>
+                        <li><strong>Shrift va o'lcham:</strong> Times New Roman, 12pt.</li>
+                        <li><strong>Satrlararo interval:</strong> 1.15 yoki 1.5.</li>
+                        <li><strong>Hoshiyalar (Поля):</strong> Har bir tomondan 2 sm.</li>
+                        <li><strong>Formula va jadvallar:</strong> Formulalar MS Equation / MathType orqali kiritilishi, jadvallar va rasmlar raqamlangan hamda nomlangan bo'lishi shart.</li>
+                    </ul>
+                </div>
+
+                <!-- 3. Maqola strukturasi (IMRAD) -->
+                <div style="margin-bottom: 25px;">
+                    <h3 style="margin-bottom: 10px; color: var(--primary-navy);"><i class="fa-solid fa-sitemap"></i> 3. Maqola strukturasi</h3>
+                    <ol style="color: var(--text-muted); line-height: 1.6; padding-left: 20px;">
+                        <li><strong>UDK indeksi</strong> (sahifaning yuqori chap burchagida).</li>
+                        <li><strong>Maqola sarlavhasi</strong> (bosh harflar bilan, qisqa va mazmunga mos).</li>
+                        <li><strong>Mualliflar haqida ma'lumot:</strong> F.I.Sh., ilmiy daraja/unvon, ish yoki o'qish joyi (Affiliation), ORCID ID, mas'ul muallifning e-mail manzili.</li>
+                        <li><strong>Annotatsiya (Abstract):</strong> 150–250 so'zdan iborat (maqola maqsadi, usullari va asosiy natijalari).</li>
+                        <li><strong>Kalit so'zlar (Keywords):</strong> 5–8 ta tayanch ibora.</li>
+                        <li><strong>Asosiy matn (IMRAD standarti bo'yicha):</strong>
+                            <ul style="padding-left: 20px; margin-top: 5px;">
+                                <li><em>Kirish (Introduction)</em> — mavzuning dolzarbligi va maqsadi.</li>
+                                <li><em>Material va usullar (Materials and Methods)</em> — tadqiqot usullari.</li>
+                                <li><em>Natijalar (Results)</em> — olingan ma'lumotlar va tahlil.</li>
+                                <li><em>Munozara (Discussion) va Xulosa (Conclusion)</em> — natijalar muhokamasi va yakuniy xulosalar.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Adabiyotlar ro'yxati (References):</strong> Manbalarga DOI havolalarini ko'rsatish majburiy.</li>
+                    </ol>
+                </div>
+
+                <!-- 4. Taqriz va nashr etish -->
+                <div style="margin-bottom: 20px;">
+                    <h3 style="margin-bottom: 10px; color: var(--primary-navy);"><i class="fa-solid fa-magnifying-glass-chart"></i> 4. Taqrizdan o'tkazish tartibi</h3>
+                    <p style="color: var(--text-muted); line-height: 1.6;">
+                        Barcha kelib tushgan maqolalar soha mutaxassislari tomonidan yopiq (<strong>Blind Review</strong>) tarzda taqrizdan o'tkaziladi. Taqriz natijasiga ko'ra maqola nashrga qabul qilinadi, qayta ko'rib chiqishga yuboriladi yoki rad etiladi.
+                    </p>
+                </div>
             </section>
+
             <section class="card">
                 <h2><i class="fa-solid fa-paper-plane"></i> Maqola yuborish</h2>
                 <form onsubmit="event.preventDefault(); alert('Maqola yuborildi!');">
