@@ -96,12 +96,123 @@
 
             <section class="card">
                 <h2><i class="fa-solid fa-paper-plane"></i> Maqola yuborish</h2>
-                <form onsubmit="event.preventDefault(); alert('Maqola yuborildi!');">
-                    <div class="input-group"><label>F.I.SH.:</label><input type="text" required></div>
-                    <div class="input-group"><label>Email:</label><input type="email" required></div>
-                    <div class="input-group"><label>Fayl (.docx):</label><input type="file" required></div>
-                    <button type="submit" style="padding: 10px 20px; background: var(--primary-navy); color: #fff; border: none; border-radius: 6px; cursor: pointer;">Yuborish</button>
-                </form>
+                <section class="card">
+
+  <form id="fs-frm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/f/xnqwgzbp" method="post" enctype="multipart/form-data">
+    
+    <div class="form-group">
+      <label for="full-name">F.I.SH.:</label>
+      <input type="text" name="name" id="full-name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email-address">Email:</label>
+      <input type="email" name="_replyto" id="email-address" required>
+    </div>
+
+    <div class="form-group">
+      <label for="file-upload">Fayl (.docx):</label>
+      <input type="file" name="attachment" id="file-upload" accept=".docx, .doc" required>
+    </div>
+
+    <input type="hidden" name="_subject" id="email-subject" value="Yangi maqola submission">
+
+    <button type="submit" class="btn-submit">Yuborish</button>
+  </form>
+</section>
+
+<style>
+/* Карточка в стиле вашей страницы */
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 30px 35px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  border: 1px solid #edf2f7;
+  max-width: 750px;
+  margin: 20px auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Заголовок с иконкой */
+.card h2 {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #0d1b2a;
+  letter-spacing: 0.5px;
+  margin: 0 0 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.card h2 i {
+  color: #0077b6; /* Синий цвет иконки */
+  font-size: 1.2rem;
+}
+
+/* Линия под заголовком */
+.divider {
+  height: 1px;
+  background-color: #e2e8f0;
+  margin-bottom: 25px;
+}
+
+/* Поля формы */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.95rem;
+  color: #2d3748;
+  margin-bottom: 8px;
+}
+
+/* Стиль инпутов как на скриншоте */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="file"] {
+  width: 100%;
+  padding: 12px 16px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #1a202c;
+  box-sizing: border-radius;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="file"]:focus {
+  outline: none;
+  border-color: #cbd5e0;
+  background-color: #ffffff;
+}
+
+/* Кнопка Yuborish */
+.btn-submit {
+  background-color: #0b132b; /* Тёмно-синий/почти чёрный цвет кнопки */
+  color: #ffffff;
+  border: none;
+  padding: 10px 24px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 5px;
+}
+
+.btn-submit:hover {
+  background-color: #1c2541;
+}
+</style>
             </section>
         </main>
     </div>
