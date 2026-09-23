@@ -101,7 +101,7 @@
   <form id="uploadForm" onsubmit="uploadToGoogleDrive(event)">
     <div class="form-group">
       <label for="full-name">F.I.SH.:</label>
-      <input type="text" id="full-name" name="fullname" placeholder="Исм ва фамилингиз" required>
+      <input type="text" id="full-name" name="fullname" placeholder="Ismi familiyangiz" required>
     </div>
 
     <div class="form-group">
@@ -131,7 +131,7 @@
 }
 
 .card h2 {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: #0d1b2a;
   margin: 0 0 14px 0;
@@ -201,11 +201,11 @@ async function uploadToGoogleDrive(event) {
 
     if (!file) return;
 
-    // Меняем статус кнопки
+    // button stts
     btn.innerText = 'Yuborilmoqda...';
     btn.disabled = true;
 
-    // Конвертируем файл в Base64 для безопасной передачи через браузер
+    // concertinf file
     const reader = new FileReader();
     reader.onload = async function () {
         const rawBytes = reader.result.split(',')[1];
