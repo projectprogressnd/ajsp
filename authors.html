@@ -4,12 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mualliflarga | Academic Journal</title>
-	<!-- favicon.ico/ -->
+    <!-- favicon.ico -->
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Специфичные стили формы с поддержкой дневной/ночной темы */
+        .info-section {
+            margin-bottom: 25px;
+        }
+
+        .info-section h3 {
+            margin-bottom: 10px;
+            color: var(--accent-cyan);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-section p, 
+        .info-section ul, 
+        .info-section ol {
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        .info-section ul, 
+        .info-section ol {
+            padding-left: 20px;
+        }
+
+        .divider {
+            height: 1px;
+            background-color: var(--border-color);
+            margin-bottom: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="file"] {
+            width: 100%;
+            padding: 14px 18px;
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-dark);
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .btn-submit {
+            background-color: var(--primary-navy);
+            color: #ffffff;
+            border: 1px solid var(--border-color);
+            padding: 12px 28px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 6px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-theme .btn-submit {
+            background: var(--btn-glow-bg, #00f2fe);
+            color: var(--btn-glow-text, #070d19);
+        }
+
+        .btn-submit:disabled {
+            background-color: var(--text-muted);
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -36,16 +116,17 @@
 
     <div class="main-container" style="margin-top: 40px;">
         <main>
+            <!-- Блок 1: Инструкция -->
             <section class="card">
                 <h2><i class="fa-solid fa-file-pen"></i> Mualliflarga ko'rsatmalar</h2>
                 
                 <!-- 1. Umumiy talablar -->
-                <div style="margin-bottom: 25px;">
-                    <h3 style="margin-bottom: 10px; color: var(--primary-navy);"><i class="fa-solid fa-circle-info"></i> 1. Umumiy talablar</h3>
-                    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 10px;">
+                <div class="info-section">
+                    <h3><i class="fa-solid fa-circle-info"></i> 1. Umumiy talablar</h3>
+                    <p style="margin-bottom: 10px;">
                         <strong>Academic Journal of Science and Progress</strong> jurnaliga ilgari e'lon qilinmagan va boshqa nashrlarga ko'rib chiqish uchun taqdim etilmagan original ilmiy maqolalar qabul qilinadi.
                     </p>
-                    <ul style="color: var(--text-muted); line-height: 1.6; padding-left: 20px;">
+                    <ul>
                         <li><strong>Maqola tili:</strong> O'zbek, rus yoki ingliz tili.</li>
                         <li><strong>Hajmi:</strong> 6 sahifadan 15 sahifagacha.</li>
                         <li><strong>Noyoblik darajasi (Anti-plagiat):</strong> Kamida <strong>80%</strong> bo'lishi talab etiladi. Barcha materiallar avtomatik tarzda tekshiriladi.</li>
@@ -53,9 +134,9 @@
                 </div>
 
                 <!-- 2. Rasmiylashtirish talablari -->
-                <div style="margin-bottom: 25px;">
-                    <h3 style="margin-bottom: 10px; color: var(--primary-navy);"><i class="fa-solid fa-sliders"></i> 2. Matnni rasmiylashtirish va formati</h3>
-                    <ul style="color: var(--text-muted); line-height: 1.6; padding-left: 20px;">
+                <div class="info-section">
+                    <h3><i class="fa-solid fa-sliders"></i> 2. Matnni rasmiylashtirish va formati</h3>
+                    <ul>
                         <li><strong>Fayl formati:</strong> MS Word (.docx).</li>
                         <li><strong>Shrift va o'lcham:</strong> Times New Roman, 12pt.</li>
                         <li><strong>Satrlararo interval:</strong> 1.15 yoki 1.5.</li>
@@ -65,16 +146,16 @@
                 </div>
 
                 <!-- 3. Maqola strukturasi (IMRAD) -->
-                <div style="margin-bottom: 25px;">
-                    <h3 style="margin-bottom: 10px; color: var(--primary-navy);"><i class="fa-solid fa-sitemap"></i> 3. Maqola strukturasi</h3>
-                    <ol style="color: var(--text-muted); line-height: 1.6; padding-left: 20px;">
+                <div class="info-section">
+                    <h3><i class="fa-solid fa-sitemap"></i> 3. Maqola strukturasi</h3>
+                    <ol>
                         <li><strong>UDK(UDC) indeksi</strong> (sahifaning yuqori chap burchagida).</li>
                         <li><strong>Maqola sarlavhasi</strong> (bosh harflar bilan, qisqa va mazmunga mos).</li>
                         <li><strong>Mualliflar haqida ma'lumot:</strong> F.I.Sh., ilmiy daraja/unvon, ish yoki o'qish joyi (Affiliation), ORCID ID, mas'ul muallifning e-mail manzili.</li>
                         <li><strong>Annotatsiya (Abstract):</strong> 150–250 so'zdan iborat (maqola maqsadi, usullari va asosiy natijalari).</li>
                         <li><strong>Kalit so'zlar (Keywords):</strong> 5–8 ta tayanch ibora.</li>
                         <li><strong>Asosiy matn (IMRAD standarti bo'yicha):</strong>
-                            <ul style="padding-left: 20px; margin-top: 5px;">
+                            <ul style="margin-top: 5px;">
                                 <li><em>Kirish (Introduction)</em> — mavzuning dolzarbligi va maqsadi.</li>
                                 <li><em>Material va usullar (Materials and Methods)</em> — tadqiqot usullari.</li>
                                 <li><em>Natijalar (Results)</em> — olingan ma'lumotlar va tahlil.</li>
@@ -86,157 +167,89 @@
                 </div>
 
                 <!-- 4. Taqriz va nashr etish -->
-                <div style="margin-bottom: 20px;">
-                    <h3 style="margin-bottom: 10px; color: var(--primary-navy);"><i class="fa-solid fa-magnifying-glass-chart"></i> 4. Taqrizdan o'tkazish tartibi</h3>
-                    <p style="color: var(--text-muted); line-height: 1.6;">
+                <div class="info-section" style="margin-bottom: 0;">
+                    <h3><i class="fa-solid fa-magnifying-glass-chart"></i> 4. Taqrizdan o'tkazish tartibi</h3>
+                    <p>
                         Barcha kelib tushgan maqolalar soha mutaxassislari tomonidan yopiq (<strong>Blind Review</strong>) tarzda taqrizdan o'tkaziladi. Taqriz natijasiga ko'ra maqola nashrga qabul qilinadi, qayta ko'rib chiqishga yuboriladi yoki rad etiladi.
                     </p>
                 </div>
             </section>
 
+            <!-- Блок 2: Форма -->
             <section class="card">
-  <h2><i class="fa-solid fa-paper-plane"></i> MAQOLA YUBORISH</h2>
-  <div class="divider"></div>
+                <h2><i class="fa-solid fa-paper-plane"></i> MAQOLA YUBORISH</h2>
+                <div class="divider"></div>
 
-  <form id="uploadForm" onsubmit="uploadToGoogleDrive(event)">
-    <div class="form-group">
-      <label for="full-name">F.I.SH.:</label>
-      <input type="text" id="full-name" name="fullname" placeholder="Ismi familiyangiz" required>
-    </div>
+                <form id="uploadForm" onsubmit="uploadToGoogleDrive(event)">
+                    <div class="form-group">
+                        <label for="full-name">F.I.SH.:</label>
+                        <input type="text" id="full-name" name="fullname" placeholder="Ismi familiyangiz" required>
+                    </div>
 
-    <div class="form-group">
-      <label for="email-address">Email:</label>
-      <input type="email" id="email-address" name="email" placeholder="email@domain.com" required>
-    </div>
+                    <div class="form-group">
+                        <label for="email-address">Email:</label>
+                        <input type="email" id="email-address" name="email" placeholder="email@domain.com" required>
+                    </div>
 
-    <div class="form-group">
-      <label for="file-upload">Fayl (.docx, .pdf):</label>
-      <input type="file" id="file-upload" name="file" accept=".docx, .doc, .pdf" required>
-    </div>
+                    <div class="form-group">
+                        <label for="file-upload">Fayl (.docx, .pdf):</label>
+                        <input type="file" id="file-upload" name="file" accept=".docx, .doc, .pdf" required>
+                    </div>
 
-    <button type="submit" id="submitBtn" class="btn-submit">Yuborish</button>
-  </form>
-</section>
-
-<style>
-.card {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 35px 40px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-  border: 1px solid #edf2f7;
-  max-width: 850px;
-  margin: 24px auto;
-  box-sizing: border-box;
-}
-
-.card h2 {
-  font-weight: 700;
-  color: #0d1b2a;
-  margin: 0 0 14px 0;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.divider {
-  height: 1px;
-  background-color: #e2e8f0;
-  margin-bottom: 28px;
-}
-
-.form-group {
-  margin-bottom: 22px;
-}
-
-.form-group label {
-  display: block;
-  color: #2d3748;
-  margin-bottom: 8px;
-}
-
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group input[type="file"] {
-  width: 100%;
-  padding: 14px 18px;
-  background-color: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  color: #1a202c;
-  box-sizing: border-box;
-}
-
-.btn-submit {
-  background-color: #0b132b;
-  color: #ffffff;
-  border: none;
-  padding: 12px 28px;
-  font-weight: 500;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-top: 6px;
-}
-
-.btn-submit:disabled {
-  background-color: #a0aec0;
-  cursor: not-allowed;
-}
-</style>
-
-<script>
-async function uploadToGoogleDrive(event) {
-    event.preventDefault();
-
-    // ⬇️ script link here
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz4XRDppNmatsdaivlDQvVF4hDL0W7NXhNvSqdcmhKr7CA-Kb5YSPIvwo971PFWq2eO/exec"; 
-
-    const btn = document.getElementById('submitBtn');
-    const fileInput = document.getElementById('file-upload');
-    const file = fileInput.files[0];
-
-    if (!file) return;
-
-    // button stts
-    btn.innerText = 'Yuborilmoqda...';
-    btn.disabled = true;
-
-    // concertinf file
-    const reader = new FileReader();
-    reader.onload = async function () {
-        const rawBytes = reader.result.split(',')[1];
-
-        const formData = new URLSearchParams();
-        formData.append('file', rawBytes);
-        formData.append('filename', file.name);
-        formData.append('mimetype', file.type);
-        formData.append('name', document.getElementById('full-name').value);
-        formData.append('email', document.getElementById('email-address').value);
-
-        try {
-            await fetch(SCRIPT_URL, {
-                method: 'POST',
-                body: formData
-            });
-
-            alert('Maqola muvaffaqiyatli yuborildi!');
-            document.getElementById('uploadForm').reset();
-        } catch (error) {
-            alert('Xatolik yuz berdi. Qaytadan urinib ko\'ring.');
-            console.error(error);
-        } finally {
-            btn.innerText = 'Yuborish';
-            btn.disabled = false;
-        }
-    };
-
-    reader.readAsDataURL(file);
-}
-</script>
+                    <button type="submit" id="submitBtn" class="btn-submit">Yuborish</button>
+                </form>
+            </section>
         </main>
     </div>
 
     <footer>&copy; 2026 Academic Journal of Science and Progress. Barcha huquqlar himoyalangan.</footer>
+    
     <script src="theme.js"></script>
+    <script>
+    async function uploadToGoogleDrive(event) {
+        event.preventDefault();
+
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz4XRDppNmatsdaivlDQvVF4hDL0W7NXhNvSqdcmhKr7CA-Kb5YSPIvwo971PFWq2eO/exec"; 
+
+        const btn = document.getElementById('submitBtn');
+        const fileInput = document.getElementById('file-upload');
+        const file = fileInput.files[0];
+
+        if (!file) return;
+
+        btn.innerText = 'Yuborilmoqda...';
+        btn.disabled = true;
+
+        const reader = new FileReader();
+        reader.onload = async function () {
+            const rawBytes = reader.result.split(',')[1];
+
+            const formData = new URLSearchParams();
+            formData.append('file', rawBytes);
+            formData.append('filename', file.name);
+            formData.append('mimetype', file.type);
+            formData.append('name', document.getElementById('full-name').value);
+            formData.append('email', document.getElementById('email-address').value);
+
+            try {
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                alert('Maqola muvaffaqiyatli yuborildi!');
+                document.getElementById('uploadForm').reset();
+            } catch (error) {
+                alert('Xatolik yuz berdi. Qaytadan urinib ko\'ring.');
+                console.error(error);
+            } finally {
+                btn.innerText = 'Yuborish';
+                btn.disabled = false;
+            }
+        };
+
+        reader.readAsDataURL(file);
+    }
+    </script>
 </body>
 </html>
