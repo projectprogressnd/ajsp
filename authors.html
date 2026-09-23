@@ -95,125 +95,150 @@
             </section>
 
             <section class="card">
-                <h2><i class="fa-solid fa-paper-plane"></i> Maqola yuborish</h2>
-                <section class="card">
+  <h2><i class="fa-solid fa-paper-plane"></i> MAQOLA YUBORISH</h2>
+  <div class="divider"></div>
 
-  <form id="fs-frm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/f/xnqwgzbp" method="post" enctype="multipart/form-data">
-    
+  <form id="uploadForm" onsubmit="uploadToGoogleDrive(event)">
     <div class="form-group">
       <label for="full-name">F.I.SH.:</label>
-      <input type="text" name="name" id="full-name" required>
+      <input type="text" id="full-name" name="fullname" placeholder="Исм ва фамилингиз" required>
     </div>
 
     <div class="form-group">
       <label for="email-address">Email:</label>
-      <input type="email" name="_replyto" id="email-address" required>
+      <input type="email" id="email-address" name="email" placeholder="email@domain.com" required>
     </div>
 
     <div class="form-group">
       <label for="file-upload">Fayl (.docx, .pdf):</label>
-      <input type="file" name="attachment" id="file-upload" accept=".docx, .doc, .pdf" required>
+      <input type="file" id="file-upload" name="file" accept=".docx, .doc, .pdf" required>
     </div>
 
-    <input type="hidden" name="_subject" id="email-subject" value="Yangi maqola submission">
-
-    <button type="submit" class="btn-submit">Yuborish</button>
+    <button type="submit" id="submitBtn" class="btn-submit">Yuborish</button>
   </form>
 </section>
 
 <style>
-/* send box style */
 .card {
   background: #ffffff;
   border-radius: 16px;
-  padding: 30px 35px;
+  padding: 35px 40px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
   border: 1px solid #edf2f7;
-  max-width: 1280px;
-  margin: 20px auto;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  max-width: 850px;
+  margin: 24px auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  box-sizing: border-box;
 }
 
-/* name of icon */
 .card h2 {
-  font-family: "Georgia", "Times New Roman", serif;
-  font-size: 1.35rem;
+  font-family: "Georgia", serif;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #0d1b2a;
-  letter-spacing: 0.5px;
-  margin: 0 0 12px 0;
+  margin: 0 0 14px 0;
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.card h2 i {
-  color: #0077b6; /* line color */
-  font-size: 1.2rem;
-}
-
-/* line under name */
 .divider {
   height: 1px;
   background-color: #e2e8f0;
-  margin-bottom: 25px;
+  margin-bottom: 28px;
 }
 
-/*p form */
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 .form-group label {
   display: block;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: #2d3748;
   margin-bottom: 8px;
 }
 
-/* style on pscr */
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group input[type="file"] {
   width: 100%;
-  padding: 12px 16px;
+  padding: 14px 18px;
   background-color: #f8fafc;
   border: 1px solid #e2e8f0;
   border-radius: 8px;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: #1a202c;
-  box-sizing: border-radius;
   box-sizing: border-box;
-  transition: all 0.2s ease;
 }
 
-.form-group input[type="text"]:focus,
-.form-group input[type="email"]:focus,
-.form-group input[type="file"]:focus {
-  outline: none;
-  border-color: #cbd5e0;
-  background-color: #ffffff;
-}
-
-/* send button */
 .btn-submit {
-  background-color: #0b132b; /* dark blue button */
+  background-color: #0b132b;
   color: #ffffff;
   border: none;
-  padding: 10px 24px;
-  font-size: 0.95rem;
+  padding: 12px 28px;
+  font-size: 1rem;
   font-weight: 500;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
-  margin-top: 5px;
+  margin-top: 6px;
 }
 
-.btn-submit:hover {
-  background-color: #1c2541;
+.btn-submit:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
 }
 </style>
-            </section>
+
+<script>
+async function uploadToGoogleDrive(event) {
+    event.preventDefault();
+
+    // ⬇️ script link here
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz4XRDppNmatsdaivlDQvVF4hDL0W7NXhNvSqdcmhKr7CA-Kb5YSPIvwo971PFWq2eO/exec"; 
+
+    const btn = document.getElementById('submitBtn');
+    const fileInput = document.getElementById('file-upload');
+    const file = fileInput.files[0];
+
+    if (!file) return;
+
+    // Меняем статус кнопки
+    btn.innerText = 'Yuborilmoqda...';
+    btn.disabled = true;
+
+    // Конвертируем файл в Base64 для безопасной передачи через браузер
+    const reader = new FileReader();
+    reader.onload = async function () {
+        const rawBytes = reader.result.split(',')[1];
+
+        const formData = new URLSearchParams();
+        formData.append('file', rawBytes);
+        formData.append('filename', file.name);
+        formData.append('mimetype', file.type);
+        formData.append('name', document.getElementById('full-name').value);
+        formData.append('email', document.getElementById('email-address').value);
+
+        try {
+            await fetch(SCRIPT_URL, {
+                method: 'POST',
+                body: formData
+            });
+
+            alert('Maqola muvaffaqiyatli yuborildi!');
+            document.getElementById('uploadForm').reset();
+        } catch (error) {
+            alert('Xatolik yuz berdi. Qaytadan urinib ko\'ring.');
+            console.error(error);
+        } finally {
+            btn.innerText = 'Yuborish';
+            btn.disabled = false;
+        }
+    };
+
+    reader.readAsDataURL(file);
+}
+</script>
         </main>
     </div>
 
