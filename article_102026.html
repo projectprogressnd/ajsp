@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://ajsp.uz/archive.html">
+    <title>Chop etilgan maqolalar | Academic Journal</title>
+    <!-- favicon.ico -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Сетка для одинакового размера карточек */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+            gap: 30px;
+            width: 100%;
+        }
+
+        /* Выравнивание содержимого карточки по высоте */
+        .article-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            margin-bottom: 0;
+        }
+
+        .article-title {
+            font-size: 1.25rem;
+            line-height: 1.4;
+            margin-bottom: 15px;
+            color: var(--primary-navy);
+            text-transform: uppercase;
+            min-height: 3.2em;
+        }
+
+        .meta-info {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .meta-item strong {
+            color: var(--primary-navy);
+        }
+
+        /* Панель кнопок над PDF-файлом */
+        .pdf-toolbar {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-bottom: none;
+            border-radius: 8px 8px 0 0;
+            padding: 10px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .pdf-file-info {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pdf-file-info i {
+            color: var(--accent-cyan);
+            font-size: 1rem;
+        }
+
+        .pdf-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-pdf-action {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-dark);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-pdf-action i {
+            color: var(--accent-cyan);
+        }
+
+        .btn-pdf-action:hover {
+            color: var(--accent-cyan);
+            border-color: var(--accent-cyan);
+            box-shadow: var(--glow-shadow);
+        }
+
+        /* Контейнер просмотра PDF с фиксированной высотой */
+        .pdf-viewer-wrapper {
+            width: 100%;
+            height: 650px;
+            border-radius: 0 0 8px 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-light);
+            box-shadow: var(--glow-shadow);
+        }
+
+        .pdf-viewer-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Заглушка для пустой правой карточки */
+        .card-empty-placeholder {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            min-height: 800px;
+            border: 2px dashed var(--border-color);
+            background: rgba(0,0,0,0.01);
+            border-radius: 12px;
+            color: var(--text-muted);
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+            .card-empty-placeholder {
+                min-height: 400px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .pdf-viewer-wrapper {
+                height: 480px;
+            }
+            .pdf-toolbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo-area">
+                <img src="images/logo.svg" alt="AJSP Logo" style="height: 42px; width: auto;">
+                <div>
+                    <div class="brand-title">Academic Journal</div>
+                    <div class="brand-subtitle">Science & Progress</div>
+                </div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="/">Bosh sahifa</a></li>
+                    <li><a href="about.html">Jurnal haqida</a></li>
+                    <li><a href="authors.html">Mualliflarga</a></li>
+                    <li><a href="archive.html" class="active">Arxiv</a></li>
+                    <li><a href="payment.html">To'lov</a></li>
+                    <li><a href="contact.html">Aloqa</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-container" style="grid-template-columns: 1fr;">
+        <main>
+            <div class="articles-grid">
+                
+                <!-- Левая сторона: Первая статья с реальными данными и PDF -->
+                <article class="card article-card">
+                    <div>
+                        <h1 class="article-title">
+                            BIOLOGIK VA KIMYOVIY PREPARATLARNING SIRDARYO VILOYATIDAGI QIYIN O'ZLASHTIRILADIGAN TUPROQLARI TUZ TARTIBIGA TA'SIRINI O'RGANISH
+                        </h1>
+
+                        <div class="meta-info">
+                            <div class="sidebar-item">
+                                <span class="sidebar-label">Muallif:</span>
+                                <span class="sidebar-val">Sadiev Farhod Fatulloevich</span>
+                            </div>
+                            <div class="sidebar-item">
+                                <span class="sidebar-label">Ixtisoslik:</span>
+                                <span class="sidebar-val">06.01.02 – Melioratsiya va sug'orma dehqonchilik</span>
+                            </div>
+                            <div class="sidebar-item">
+                                <span class="sidebar-label">Muassasa:</span>
+                                <span class="sidebar-val">Irrigatsiya va suv muammolari institut ilmiy kengashi</span>
+                            </div>
+                        </div>
+
+                        <div class="metric-box" style="margin-bottom: 20px;">
+                            <div class="metric-value" style="margin-bottom: 6px;">
+                                <i class="fa-solid fa-file-lines" style="color: var(--accent-cyan);"></i> Annotatsiya
+                            </div>
+                            <div class="metric-label" style="font-size: 0.88rem; line-height: 1.5;">
+                                Ushbu tadqiqotda sho'rlangan va gipsli tuproqlarning unumdorligini oshirish, Sirdaryo viloyatida biologik va kimyoviy preparatlarni qo'llash orqali tuz tartibini yaxshilash masalalari o'rganilgan.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="pdf-toolbar">
+                            <div class="pdf-file-info">
+                                <i class="fa-solid fa-file-pdf"></i>
+                                <span>Avtoreferat_Sadiev.pdf</span>
+                            </div>
+                            <div class="pdf-actions">
+                                <a href="https://drive.google.com/uc?export=download&id=1UKizm3Xso2VFQc6SpHZIZkXSn4D70XB_" class="btn-pdf-action" target="_blank" title="Yuklab olish">
+                                    <i class="fa-solid fa-download"></i> Yuklab olish
+                                </a>
+                                <button class="btn-pdf-action" onclick="window.print()" title="Chop etish">
+                                    <i class="fa-solid fa-print"></i> Chop etish
+                                </button>
+                                <button class="btn-pdf-action" onclick="copyLink()" title="Ulashish">
+                                    <i class="fa-solid fa-share-nodes"></i> Ulashish
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="pdf-viewer-wrapper">
+                            <iframe 
+                                src="https://drive.google.com/file/d/1UKizm3Xso2VFQc6SpHZIZkXSn4D70XB_/preview" 
+                                allow="autoplay"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Правая сторона: Пустая карточка ровно такого же размера -->
+                <article class="card article-card">
+                    <div class="card-empty-placeholder">
+                        <i class="fa-solid fa-folder-plus" style="font-size: 2.5rem; color: var(--accent-cyan); margin-bottom: 15px;"></i>
+                        <p style="font-weight: 500;">Keyingi maqola joyi</p>
+                    </div>
+                </article>
+
+            </div>
+        </main>
+    </div>
+
+    <footer>&copy; 2026 Academic Journal of Science and Progress. Barcha huquqlar himoyalangan.</footer>
+
+    <script src="theme.js"></script>
+    <script>
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href);
+            alert("Maqola havolasi nusxalandi!");
+        }
+    </script>
+</body>
+</html>

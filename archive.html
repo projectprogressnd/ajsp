@@ -3,14 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="canonical" href="https://ajsp.uz/archive.html">
+    <link rel="canonical" href="https://ajsp.uz/archive.html">
     <title>Arxiv | Academic Journal</title>
-	<!-- favicon.ico/ -->
+    <!-- favicon.ico -->
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Сетка архива: 5 равных колонок */
+        .archive-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        /* Колонка года */
+        .year-column {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .year-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            text-align: center;
+            border-bottom: 2px solid var(--accent-cyan);
+            padding-bottom: 8px;
+            margin-bottom: 5px;
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Список 12 месяцев */
+        .month-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .month-item {
+            font-size: 0.88rem;
+            padding: 8px 10px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        /* Активная ссылка на выпуск */
+        .month-item a {
+            display: block;
+            color: var(--accent-cyan);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .month-item a:hover {
+            color: var(--primary-navy);
+        }
+
+        .month-item.active-issue {
+            border-color: var(--accent-cyan);
+            background: rgba(2, 132, 199, 0.08);
+            box-shadow: var(--glow-shadow);
+        }
+
+        /* Неактивные выпуски (заглушки) */
+        .month-item.disabled {
+            color: var(--text-muted);
+            opacity: 0.6;
+            background: transparent;
+            border-style: dashed;
+        }
+
+        /* Адаптивность под мобильные устройства */
+        @media (max-width: 1024px) {
+            .archive-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .archive-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -35,11 +123,115 @@
         </div>
     </header>
 
-    <div class="main-container" style="margin-top: 40px;">
+    <div class="main-container" style="margin-top: 40px; grid-template-columns: 1fr;">
         <main>
             <section class="card">
                 <h2><i class="fa-solid fa-box-archive"></i> Jurnal Arxivi</h2>
-                <p style="color: var(--text-muted);">2026-yil 1-soni tayyorlanmoqda.</p>
+                
+                <!-- 5 колонок по 12 месяцев -->
+                <div class="archive-grid">
+                    
+                    <!-- Колонка 1: 2026-yil -->
+                    <div class="year-column">
+                        <div class="year-header">2026-yil</div>
+                        <ul class="month-list">
+                            <li class="month-item disabled">01/2026</li>
+                            <li class="month-item disabled">02/2026</li>
+                            <li class="month-item disabled">03/2026</li>
+                            <li class="month-item disabled">04/2026</li>
+                            <li class="month-item disabled">05/2026</li>
+                            <li class="month-item disabled">06/2026</li>
+                            <li class="month-item disabled">07/2026</li>
+                            <li class="month-item disabled">08/2026</li>
+                            <li class="month-item disabled">09/2026</li>
+                            <!-- Активный выпуск 10/2026 со ссылкой на новую вкладку -->
+                            <li class="month-item active-issue">
+                                <a href="article.html" target="_blank" title="10/2026 sonini ko'rish">
+                                    <i class="fa-solid fa-file-pdf"></i> 10/2026
+                                </a>
+                            </li>
+                            <li class="month-item disabled">11/2026</li>
+                            <li class="month-item disabled">12/2026</li>
+                        </ul>
+                    </div>
+
+                    <!-- Колонка 2: 2027-yil -->
+                    <div class="year-column">
+                        <div class="year-header">2027-yil</div>
+                        <ul class="month-list">
+                            <li class="month-item disabled">01/2027</li>
+                            <li class="month-item disabled">02/2027</li>
+                            <li class="month-item disabled">03/2027</li>
+                            <li class="month-item disabled">04/2027</li>
+                            <li class="month-item disabled">05/2027</li>
+                            <li class="month-item disabled">06/2027</li>
+                            <li class="month-item disabled">07/2027</li>
+                            <li class="month-item disabled">08/2027</li>
+                            <li class="month-item disabled">09/2027</li>
+                            <li class="month-item disabled">10/2027</li>
+                            <li class="month-item disabled">11/2027</li>
+                            <li class="month-item disabled">12/2027</li>
+                        </ul>
+                    </div>
+
+                    <!-- Колонка 3: 2028-yil -->
+                    <div class="year-column">
+                        <div class="year-header">2028-yil</div>
+                        <ul class="month-list">
+                            <li class="month-item disabled">01/2028</li>
+                            <li class="month-item disabled">02/2028</li>
+                            <li class="month-item disabled">03/2028</li>
+                            <li class="month-item disabled">04/2028</li>
+                            <li class="month-item disabled">05/2028</li>
+                            <li class="month-item disabled">06/2028</li>
+                            <li class="month-item disabled">07/2028</li>
+                            <li class="month-item disabled">08/2028</li>
+                            <li class="month-item disabled">09/2028</li>
+                            <li class="month-item disabled">10/2028</li>
+                            <li class="month-item disabled">11/2028</li>
+                            <li class="month-item disabled">12/2028</li>
+                        </ul>
+                    </div>
+
+                    <!-- Колонка 4: 2029-yil -->
+                    <div class="year-column">
+                        <div class="year-header">2029-yil</div>
+                        <ul class="month-list">
+                            <li class="month-item disabled">01/2029</li>
+                            <li class="month-item disabled">02/2029</li>
+                            <li class="month-item disabled">03/2029</li>
+                            <li class="month-item disabled">04/2029</li>
+                            <li class="month-item disabled">05/2029</li>
+                            <li class="month-item disabled">06/2029</li>
+                            <li class="month-item disabled">07/2029</li>
+                            <li class="month-item disabled">08/2029</li>
+                            <li class="month-item disabled">09/2029</li>
+                            <li class="month-item disabled">10/2029</li>
+                            <li class="month-item disabled">11/2029</li>
+                            <li class="month-item disabled">12/2029</li>
+                        </ul>
+                    </div>
+
+                    <!-- Колонка 5: 2030-yil -->
+                    <div class="year-column">
+                        <div class="year-header">2030-yil</div>
+                        <ul class="month-list">
+                            <li class="month-item disabled">01/2030</li>
+                            <li class="month-item disabled">02/2030</li>
+                            <li class="month-item disabled">03/2030</li>
+                            <li class="month-item disabled">04/2030</li>
+                            <li class="month-item disabled">05/2030</li>
+                            <li class="month-item disabled">06/2030</li>
+                            <li class="month-item disabled">07/2030</li>
+                            <li class="month-item disabled">08/2030</li>
+                            <li class="month-item disabled">09/2030</li>
+                            <li class="month-item disabled">10/2030</li>
+                            <li class="month-item disabled">11/2030</li>
+                            <li class="month-item disabled">12/2030</li>
+                        </ul>
+                    </div>
+
+                </div>
             </section>
         </main>
     </div>
