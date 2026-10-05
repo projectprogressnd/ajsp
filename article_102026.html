@@ -12,14 +12,6 @@
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Сетка для одинакового размера карточек */
-        .articles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
-            gap: 30px;
-            width: 100%;
-        }
-
         /* Выравнивание содержимого карточки по высоте */
         .article-card {
             display: flex;
@@ -27,6 +19,7 @@
             justify-content: space-between;
             height: 100%;
             margin-bottom: 0;
+            width: 100%;
         }
 
         .article-title {
@@ -35,7 +28,6 @@
             margin-bottom: 15px;
             color: var(--primary-navy);
             text-transform: uppercase;
-            min-height: 3.2em;
         }
 
         .meta-info {
@@ -126,31 +118,6 @@
             border: none;
         }
 
-        /* Заглушка для пустой правой карточки */
-        .card-empty-placeholder {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            min-height: 800px;
-            border: 2px dashed var(--border-color);
-            background: rgba(0,0,0,0.01);
-            border-radius: 12px;
-            color: var(--text-muted);
-            text-align: center;
-            padding: 20px;
-        }
-
-        @media (max-width: 900px) {
-            .articles-grid {
-                grid-template-columns: 1fr;
-            }
-            .card-empty-placeholder {
-                min-height: 400px;
-            }
-        }
-
         @media (max-width: 600px) {
             .pdf-viewer-wrapper {
                 height: 480px;
@@ -187,78 +154,73 @@
 
     <div class="main-container" style="grid-template-columns: 1fr;">
         <main>
-            <div class="articles-grid">
-                
-                <!-- Левая сторона: Первая статья с реальными данными и PDF -->
-                <article class="card article-card">
-                    <div>
-                        <h1 class="article-title">
-                            EVALUATION OF THE IMPACT OF CHANNEL DEFORMATIONS ON THE RELIABILITY OF OBSERVATION DATA AT THE QIPCHOQ GAUGING STATION
-                        </h1>
+            <!-- Единственная колонка со статьей -->
+            <article class="card article-card">
+                <div>
+                    <h1 class="article-title">
+                        EVALUATION OF THE IMPACT OF CHANNEL DEFORMATIONS ON THE RELIABILITY OF OBSERVATION DATA AT THE QIPCHOQ GAUGING STATION
+                    </h1>
 
-                        <div class="meta-info">
-                            <div class="sidebar-item">
-                                <span class="sidebar-label">Muallif:</span>
-                                <span class="sidebar-val">Jurayev Bahrom Bahriddinovich</span>
-                            </div>
-                            <div class="sidebar-item">
-                                <span class="sidebar-label">Ixtisoslik:</span>
-                                <span class="sidebar-val">Gidravlika va muhandislik gidrologiyasi</span>
-                            </div>
-                            <div class="sidebar-item">
-                                <span class="sidebar-label">Muassasa:</span>
-                                <span class="sidebar-val">SRIIWP</span>
-                            </div>
+                    <div class="meta-info">
+                        <div class="sidebar-item">
+                            <span class="sidebar-label">Muallif:</span>
+                            <span class="sidebar-val">Jurayev Bahrom Bahriddinovich</span>
                         </div>
-
-                        <div class="metric-box" style="margin-bottom: 20px;">
-                            <div class="metric-value" style="margin-bottom: 6px;">
-                                <i class="fa-solid fa-file-lines" style="color: var(--accent-cyan);"></i> Annotatsiya
-                            </div>
-                            <div class="metric-label" style="font-size: 0.88rem; line-height: 1.5;">
-                                This paper evaluates the impact of riverbed deformations on the reliability of hydrological observation data, using the Qipchoq gauging station in the Lower Amu Darya basin as a case study.
-                            </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-label">Ixtisoslik:</span>
+                            <span class="sidebar-val">Gidravlika va muhandislik gidrologiyasi</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-label">Muassasa:</span>
+                            <span class="sidebar-val">SRIIWP</span>
                         </div>
                     </div>
 
-                    <div>
-                        <div class="pdf-toolbar">
-                            <div class="pdf-file-info">
-                                <i class="fa-solid fa-file-pdf"></i>
-                                <span>Article_Bahrom.pdf</span>
-                            </div>
-                            <div class="pdf-actions">
-                                <a href="https://drive.google.com/uc?export=download&id=1CJ7OShlZtubdU33hC9qEhKIHcOFY2zrQ" class="btn-pdf-action" target="_blank" title="Yuklab olish">
-                                    <i class="fa-solid fa-download"></i> Yuklab olish
-                                </a>
-                                <button class="btn-pdf-action" onclick="window.print()" title="Chop etish">
-                                    <i class="fa-solid fa-print"></i> Chop etish
-                                </button>
-                                <button class="btn-pdf-action" onclick="copyLink()" title="Ulashish">
-                                    <i class="fa-solid fa-share-nodes"></i> Ulashish
-                                </button>
-                            </div>
+                    <div class="metric-box" style="margin-bottom: 20px;">
+                        <div class="metric-value" style="margin-bottom: 6px;">
+                            <i class="fa-solid fa-file-lines" style="color: var(--accent-cyan);"></i> Annotatsiya
                         </div>
+                        <div class="metric-label" style="font-size: 0.88rem; line-height: 1.5;">
+                            This paper evaluates the impact of riverbed deformations on the reliability of hydrological observation data, using the Qipchoq gauging station in the Lower Amu Darya basin as a case study.
+                        </div>
+                    </div>
+                </div>
 
-                        <div class="pdf-viewer-wrapper">
+                <div>
+                    <div class="pdf-toolbar">
+                        <div class="pdf-file-info">
+                            <i class="fa-solid fa-file-pdf"></i>
+                            <span>Article_Bahrom.pdf</span>
+                        </div>
+                        <div class="pdf-actions">
+                            <a href="https://drive.google.com/uc?export=download&id=1CJ7OShlZtubdU33hC9qEhKIHcOFY2zrQ" class="btn-pdf-action" target="_blank" title="Yuklab olish">
+                                <i class="fa-solid fa-download"></i> Yuklab olish
+                            </a>
+                            <button class="btn-pdf-action" onclick="window.print()" title="Chop etish">
+                                <i class="fa-solid fa-print"></i> Chop etish
+                            </button>
+                            <button class="btn-pdf-action" onclick="copyLink()" title="Ulashish">
+                                <i class="fa-solid fa-share-nodes"></i> Ulashish
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="pdf-viewer-wrapper">
+                        <object 
+                            data="https://drive.google.com/uc?export=download&id=1CJ7OShlZtubdU33hC9qEhKIHcOFY2zrQ#view=FitH" 
+                            type="application/pdf" 
+                            width="100%" 
+                            height="100%">
                             <iframe 
                                 src="https://drive.google.com/file/d/1CJ7OShlZtubdU33hC9qEhKIHcOFY2zrQ/preview" 
-                                allow="autoplay"
-                                allowfullscreen>
+                                width="100%" 
+                                height="100%" 
+                                style="border: none;">
                             </iframe>
-                        </div>
+                        </object>
                     </div>
-                </article>
-
-                <!-- Правая сторона: Пустая карточка ровно такого же размера -->
-                <article class="card article-card">
-                    <div class="card-empty-placeholder">
-                        <i class="fa-solid fa-folder-plus" style="font-size: 2.5rem; color: var(--accent-cyan); margin-bottom: 15px;"></i>
-                        <p style="font-weight: 500;">Keyingi maqola joyi</p>
-                    </div>
-                </article>
-
-            </div>
+                </div>
+            </article>
         </main>
     </div>
 
