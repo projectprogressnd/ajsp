@@ -3,81 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oktabr 2026 - Nashrlar | Academic Journal</title>
+    <title>Oktabr 2026 - 1-son | Academic Journal</title>
     <!-- favicon.ico -->
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Стили для страницы списка статей выпуска */
-        .issue-hero {
+        /* Специфичные стили для страницы выпуска в едином стиле сайта */
+        .issue-hero-content {
             display: flex;
             gap: 30px;
             align-items: center;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: var(--glow-shadow);
         }
         .issue-cover {
-            flex: 0 0 220px;
+            flex: 0 0 200px;
             border-radius: 8px;
             overflow: hidden;
             border: 1px solid var(--border-color);
             background: var(--bg-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
         .issue-cover img {
             width: 100%;
             height: auto;
             display: block;
+            aspect-ratio: 1 / 1.414;
+            object-fit: cover;
         }
-        .issue-details h1 {
-            font-size: 1.8rem;
+        .issue-info h3 {
+            font-size: 1.4rem;
             color: var(--primary-navy);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            border-bottom: none;
+            padding-bottom: 0;
         }
-        .issue-details p {
+        .issue-info p {
             color: var(--text-muted);
             font-size: 0.95rem;
-            margin-bottom: 15px;
-            line-height: 1.5;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
-        .issue-meta {
+        .issue-meta-grid {
             display: flex;
             gap: 20px;
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
         }
-        .issue-meta span strong {
+        .issue-meta-grid strong {
             color: var(--primary-navy);
         }
 
-        .articles-list {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
+        /* Карточка статьи в едином стиле */
         .article-item-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 25px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             gap: 20px;
-            box-shadow: var(--glow-shadow);
-            transition: all 0.3s ease;
-        }
-        .article-item-card:hover {
-            border-color: var(--accent-cyan);
         }
         .article-item-info {
             flex: 1;
@@ -129,11 +114,11 @@
         }
 
         @media (max-width: 768px) {
-            .issue-hero {
+            .issue-hero-content {
                 flex-direction: column;
                 text-align: center;
             }
-            .issue-meta {
+            .issue-meta-grid {
                 justify-content: center;
                 flex-wrap: wrap;
             }
@@ -172,27 +157,28 @@
 
     <div class="main-container" style="grid-template-columns: 1fr;">
         <main>
-            <!-- Блок с обложкой и описанием выпуска -->
-            <div class="issue-hero">
-                <div class="issue-cover">
-                    <!-- Оригинальная обложка октябрьского месяца -->
-                    <img src="images/cover_102026.jpg" alt="Oktabr 2026 Jurnal Muqovasi">
-                </div>
-                <div class="issue-details">
-                    <h1>Oktabr 2026 —  1-son</h1>
-                    <p>Academic Journal of Science and Progress — quyidagi sohalar bo‘yicha materiallarni chop etuvchi, ochiq kirish imkoniyatiga ega ko‘p tarmoqli jurnaldir: qishloq xo‘jaligi fanlari, amaliy matematika, biologiya va hayot haqidagi fanlar, kimyo, kompyuter va axborot fanlari, Yer haqidagi fanlar, ekologiya va atrof-muhit fanlari, muhandislik va texnologiya, tibbiyot va sog‘liqni saqlash, fizika...</p>
-                    <div class="issue-meta">
-                        <span><strong>Nashr sanasi:</strong> 2026-10-01</span>
-                        <span><strong>ISSN:</strong> 2181-xxxx</span>
-                        
+            <!-- Блок с обложкой в едином стиле сайта (card) -->
+            <div class="card">
+                <h2><i class="fa-solid fa-book-open"></i> Oktabr 2026 — 1-son</h2>
+                <div class="issue-hero-content">
+                    <div class="issue-cover">
+                        <img src="images/cover_102026.jpg" alt="Academic Journal - Oktabr 2026 Muqovasi">
+                    </div>
+                    <div class="issue-info" style="flex: 1;">
+                        <h3>Academic Journal of Science and Progress</h3>
+                        <p>Quyidagi sohalar bo‘yicha materiallarni chop etuvchi, ochiq kirish imkoniyatiga ega ko‘p tarmoqli jurnaldir: qishloq xo‘jaligi fanlari, amaliy matematika, biologiya va hayot haqidagi fanlar, kimyo, kompyuter va axborot fanlari, Yer haqidagi fanlar, ekologiya va atrof-muhit fanlari, muhandislik va texnologiya, tibbiyot va sog‘liqni saqlash, fizika...</p>
+                        <div class="issue-meta-grid">
+                            <span><strong>Nashr sanasi:</strong> 2026-10-01</span>
+                            <span><strong>ISSN:</strong> 2181-xxxx</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Список статей выпуска -->
-            <div class="articles-list">
+            <div style="display: flex; flex-direction: column; gap: 20px;">
                 
-                <div class="article-item-card">
+                <div class="card article-item-card">
                     <div class="article-item-info">
                         <a href="article_102026.html" class="article-item-title">
                             EVALUATION OF THE IMPACT OF CHANNEL DEFORMATIONS ON THE RELIABILITY OF OBSERVATION DATA AT THE QIPCHOQ GAUGING STATION
