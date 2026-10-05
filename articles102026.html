@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oktabr 2026 - Nashrlar | Academic Journal</title>
+    <!-- favicon.ico -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Стили для страницы списка статей выпуска */
+        .issue-hero {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--glow-shadow);
+        }
+        .issue-cover {
+            flex: 0 0 220px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background: var(--bg-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .issue-cover img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .issue-details h1 {
+            font-size: 1.8rem;
+            color: var(--primary-navy);
+            margin-bottom: 10px;
+        }
+        .issue-details p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        .issue-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        .issue-meta span strong {
+            color: var(--primary-navy);
+        }
+
+        .articles-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .article-item-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            box-shadow: var(--glow-shadow);
+            transition: all 0.3s ease;
+        }
+        .article-item-card:hover {
+            border-color: var(--accent-cyan);
+        }
+        .article-item-info {
+            flex: 1;
+        }
+        .article-item-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 8px;
+            transition: color 0.3s;
+        }
+        .article-item-title:hover {
+            color: var(--accent-cyan);
+        }
+        .article-item-author {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+        .article-item-doi {
+            font-size: 0.85rem;
+            color: var(--accent-cyan);
+            font-family: monospace;
+        }
+        .article-item-pdf-btn {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            color: var(--text-dark);
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+        .article-item-pdf-btn i {
+            color: #ef4444;
+        }
+        .article-item-pdf-btn:hover {
+            background: rgba(2, 132, 199, 0.08);
+            border-color: var(--accent-cyan);
+            box-shadow: var(--glow-shadow);
+        }
+
+        @media (max-width: 768px) {
+            .issue-hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            .issue-meta {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .article-item-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .article-item-pdf-btn {
+                align-self: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo-area">
+                <img src="images/logo.svg" alt="AJSP Logo" style="height: 42px; width: auto;">
+                <div>
+                    <div class="brand-title">Academic Journal</div>
+                    <div class="brand-subtitle">Science & Progress</div>
+                </div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="/">Bosh sahifa</a></li>
+                    <li><a href="about.html">Jurnal haqida</a></li>
+                    <li><a href="authors.html">Mualliflarga</a></li>
+                    <li><a href="archive.html" class="active">Arxiv</a></li>
+                    <li><a href="payment.html">To'lov</a></li>
+                    <li><a href="contact.html">Aloqa</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-container" style="grid-template-columns: 1fr;">
+        <main>
+            <!-- Блок с обложкой и описанием выпуска -->
+            <div class="issue-hero">
+                <div class="issue-cover">
+                    <!-- Оригинальная обложка октябрьского месяца -->
+                    <img src="images/cover_102026.jpg" alt="Oktabr 2026 Jurnal Muqovasi">
+                </div>
+                <div class="issue-details">
+                    <h1>Oktabr 2026 —  1-son</h1>
+                    <p>Academic Journal of Science and Progress ilmiy jurnalining navbatdagi soni zamonaviy ilmiy yo'nalishlardagi tadqiqotlarni o'z ichiga oladi.</p>
+                    <div class="issue-meta">
+                        <span><strong>Nashr sanasi:</strong> 2026-10-01</span>
+                        <span><strong>ISSN:</strong> 2181-xxxx</span>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Список статей выпуска -->
+            <div class="articles-list">
+                
+                <div class="article-item-card">
+                    <div class="article-item-info">
+                        <a href="article_102026.html" class="article-item-title">
+                            EVALUATION OF THE IMPACT OF CHANNEL DEFORMATIONS ON THE RELIABILITY OF OBSERVATION DATA AT THE QIPCHOQ GAUGING STATION
+                        </a>
+                        <div class="article-item-author">
+                            <strong>Muallif:</strong> Jurayev Bahrom Bahriddinovich
+                        </div>
+                        <div class="article-item-doi">
+                            DOI: 10.5281/zenodo.ajsp.2026.10.01
+                        </div>
+                    </div>
+                    <a href="article_102026.html" class="article-item-pdf-btn" title="PDFni ko'rish">
+                        <i class="fa-solid fa-file-pdf"></i>
+                    </a>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <footer>&copy; 2026 Academic Journal of Science and Progress. Barcha huquqlar himoyalangan.</footer>
+
+    <script src="theme.js"></script>
+</body>
+</html>
