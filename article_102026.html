@@ -178,6 +178,10 @@
                             <span class="sidebar-label">DOI:</span>
                             <span class="sidebar-val"><a href="https://doi.org/10.5281/zenodo.23553230" target="_blank">10.5281/zenodo.23553230</a></span>
                         </div>
+						<div class="sidebar-item">
+                            <span class="sidebar-label"><i class="fa-solid fa-eye" style="color: var(--accent-cyan);"></i> Ko'rishlar:</span>
+                            <span class="sidebar-val" id="view-count">...</span>
+                        </div>
                     </div>
 
                     <div class="metric-box" style="margin-bottom: 20px;">
@@ -232,6 +236,36 @@
             navigator.clipboard.writeText(window.location.href);
             alert("Maqola havolasi nusxalandi!");
         }
+    </script>
+	<!-- Скрипт просмотров Supabase -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const path = window.location.pathname;
+            const articleId = path.substring(path.lastIndexOf('/') + 1).replace('.html', '') || 'index';
+
+            const SUPABASE_URL = "https://tabujqjxxxdlkvlgbxqt.supabase.co";
+            const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_JnNTmBzndZ5C9TQ2JpWA_w_P6YgOCQl"; // Вставь сюда свой ключ (sb_publishable_...)
+
+            fetch(`${SUPABASE_URL}/rest/v1/rpc/increment_view`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'apikey': SUPABASE_PUBLISHABLE_KEY,
+                    'Authorization': `Bearer ${SUPABASE_PUBLISHABLE_KEY}`
+                },
+                body: JSON.stringify({ target_article_id: articleId })
+            })
+            .then(response => response.json())
+            .then(views => {
+                const viewCountEl = document.getElementById('view-count');
+                if (viewCountEl && views !== undefined) {
+                    viewCountEl.textContent = views;
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка при обновлении просмотров:', error);
+            });
+        });
     </script>
 </body>
 </html>
