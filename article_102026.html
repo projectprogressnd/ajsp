@@ -121,6 +121,10 @@
         border: none;
         display: block;
     }
+		/* 1. Сначала скрываем кнопку на ПК (глобально) */
+    .btn-mobile-only {
+        display: none !important;
+    }
 
         @media (max-width: 768px) {
         .pdf-viewer-wrapper {
@@ -135,10 +139,6 @@
         .btn-mobile-only {
             display: inline-flex !important;
         }
-    }
-		/* глобально скрываем на ПК */
-    .btn-mobile-only {
-        display: none !important;
     }
     </style>
 </head>
