@@ -135,19 +135,17 @@
             border-bottom: 1px solid var(--border-color) !important;
             margin-bottom: 20px;
         }
-			/* Выстраиваем блок кнопок */
-        .pdf-actions {
-            flex-direction: column;
-            gap: 8px;
-        }
-			/* Делаем кнопку просмотра на всю ширину экрана телефона */
+			/* Делаем кнопку просмотра широкой и переносим её на отдельную строку под ними */
         .btn-mobile-only {
             display: flex !important;
             width: 100%;
+            flex: 0 0 100%;
+            order: 10;
+            margin-top: 8px;
             justify-content: center;
             padding: 10px 16px;
             font-size: 0.95rem;
-        }			
+        }				
     }
     </style>
 </head>
