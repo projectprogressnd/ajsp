@@ -131,6 +131,14 @@
             border-bottom: 1px solid var(--border-color) !important;
             margin-bottom: 20px;
         }
+			/* показ кнопки для мобильных */
+        .btn-mobile-only {
+            display: inline-flex !important;
+        }
+    }
+		/* глобально скрываем на ПК */
+    .btn-mobile-only {
+        display: none !important;
     }
     </style>
 </head>
@@ -206,6 +214,9 @@
                             <span>EVALUATION OF THE IMPACT OF CHANNEL DEFORMATIONS...pdf</span>
                         </div>
                         <div class="pdf-actions">
+							<a href="https://ajsp.uz/files/issue2026/EVALUATION-OF-THE-IMPACT-OF-CHANNEL-DEFORMATIONS.pdf" class="btn-pdf-action btn-mobile-only" target="_blank" title="To'liq ko'rish">
+								<i class="fa-solid fa-eye" style="color: var(--accent-cyan);"></i> Ko'rish
+							</a>
                             <a href="https://drive.google.com/uc?export=download&id=1CJ7OShlZtubdU33hC9qEhKIHcOFY2zrQ" class="btn-pdf-action" target="_blank" title="Yuklab olish">
                                 <i class="fa-solid fa-download"></i> Yuklab olish
                             </a>
