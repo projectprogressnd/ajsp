@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://ajsp.uz/archive.html">
+    <title>Chop etilgan maqolalar | Academic Journal</title>
+    <!-- favicon.ico -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Выравнивание содержимого карточки по высоте */
+        .article-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            margin-bottom: 0;
+            width: 100%;
+        }
+
+        .article-title {
+            font-size: 1.25rem;
+            line-height: 1.4;
+            margin-bottom: 5px;
+            color: var(--primary-navy);
+            text-transform: uppercase;
+        }
+
+        .meta-info {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .meta-item strong {
+            color: var(--primary-navy);
+        }
+
+        /* Панель кнопок над PDF-файлом */
+        .pdf-toolbar {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-bottom: none;
+            border-radius: 8px 8px 0 0;
+            padding: 10px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .pdf-file-info {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pdf-file-info i {
+            color: var(--accent-cyan);
+            font-size: 1rem;
+        }
+
+        .pdf-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-pdf-action {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-dark);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-pdf-action i {
+            color: var(--accent-cyan);
+        }
+
+        .btn-pdf-action:hover {
+            color: var(--accent-cyan);
+            border-color: var(--accent-cyan);
+            box-shadow: var(--glow-shadow);
+        }
+
+        /* Контейнер просмотра PDF */
+		.pdf-viewer-wrapper {
+        width: 100%;
+        max-width: 100%;
+        height: 75vh;
+        border-radius: 0 0 8px 8px;
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+        background-color: var(--bg-light);
+        box-shadow: var(--glow-shadow);
+		box-sizing: border-box;
+        -webkit-overflow-scrolling: touch; /* Плавная прокрутка*/
+    }
+
+    .pdf-viewer-wrapper iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+    }
+		/* 1. Сначала скрываем кнопку на ПК (глобально) */
+    .btn-mobile-only {
+        display: none !important;
+    }
+
+        @media (max-width: 768px) {
+        .pdf-viewer-wrapper {
+            display: none !important;
+        }
+            .pdf-toolbar {
+            border-radius: 8px !important;
+            border-bottom: 1px solid var(--border-color) !important;
+            margin-bottom: 20px;
+        }
+			/* Делаем кнопку просмотра широкой и переносим её на отдельную строку под ними */
+        .btn-mobile-only {
+            display: flex !important;
+            width: 100%;
+            margin-top: 10px;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            font-size: 0.95rem;
+            box-sizing: border-box;
+        }				
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo-area">
+                <img src="images/logo.svg" alt="AJSP Logo" style="height: 42px; width: auto;">
+                <div>
+                    <div class="brand-title">Academic Journal</div>
+                    <div class="brand-subtitle">Science & Progress</div>
+                </div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="/">Bosh sahifa</a></li>
+                    <li><a href="about.html">Jurnal haqida</a></li>
+                    <li><a href="authors.html">Mualliflarga</a></li>
+                    <li><a href="archive.html" class="active">Arxiv</a></li>
+                    <li><a href="payment.html">To'lov</a></li>
+                    <li><a href="contact.html">Aloqa</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-container" style="grid-template-columns: 1fr;">
+        <main>
+            <!-- Единственная колонка со статьей -->
+            <article class="card article-card">
+                <div>
+                    <h1 class="article-title">
+                        SUG‘ORISH TEXNOLOGIYALARINING YERLARNING MELIORATIV HOLATIGA TA’SIRI
+                    </h1>
+
+                    <div class="meta-info">
+                        <div class="sidebar-item">
+                            <span class="sidebar-label">Muallif:</span>
+                            <span class="sidebar-val">O‘razkeldiyev Abduvoxid Baxtiyarovich</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-label">Ixtisoslik:</span>
+                            <span class="sidebar-val">Gidravlika va muhandislik gidrologiyasi</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-label">Muassasa:</span>
+                            <span class="sidebar-val">SRIIWP</span>
+                        </div>
+						<div class="sidebar-item">
+                            <span class="sidebar-label">DOI:</span>
+                            <span class="sidebar-val"><a href="https://doi.org/10.5281/zenodo.23558126" target="_blank">10.5281/zenodo.23558126</a></span>
+                        </div>
+						<div class="sidebar-item">
+                            <span class="sidebar-label"><i class="fa-solid fa-eye" style="color: var(--accent-cyan);"></i> Ko'rishlar:</span>
+                            <span class="sidebar-val" id="view-count">...</span>
+                        </div>
+                    </div>
+
+                    <div class="metric-box" style="margin-bottom: 20px;">
+                        <div class="metric-value" style="margin-bottom: 6px;">
+                            <i class="fa-solid fa-file-lines" style="color: var(--accent-cyan);"></i> Annotatsiya
+                        </div>
+                        <div class="metric-label" style="font-size: 0.88rem; line-height: 1.5;">
+                             Ushbu maqolada global iqlim o‘zgarishi va suv tanqisligi sharoitida Xorazm vohasining
+tuproq-iqlim sharoiti va yerlarning meliorativ holatini inobatga olib, g‘o‘zaning suv tejamkor tomchilatib sug‘orish
+usulidagi ilmiy asoslangan sug‘orish tartiblarini joriy qilish orqali Xorazm viloyatida kollektor-zovur suvlarini
+shakllanishi va ularni viloyat chegarasidan chiqib ketishini kamaytirishga qaratilgan ISMITI uslublari asosida olib
+borilgan dala tajribalarining natijalari keltirilgan.
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="pdf-toolbar">
+                        <div class="pdf-file-info">
+                            <i class="fa-solid fa-file-pdf"></i>
+                            <span>SUG‘ORISH TEXNOLOGIYALARINING YERLARNING MELIORATIV...pdf</span>
+                        </div>
+                        <div class="pdf-actions">
+                            <a href="https://ajsp.uz/files/issue2026/Sugorish_texnolog_erlar_mel.pdf" class="btn-pdf-action" target="_blank" title="Yuklab olish">
+                                <i class="fa-solid fa-download"></i> Yuklab olish
+                            </a>
+                            <button class="btn-pdf-action" onclick="window.print()" title="Chop etish">
+                                <i class="fa-solid fa-print"></i> Chop etish
+                            </button>
+                            <button class="btn-pdf-action" onclick="copyLink()" title="Ulashish">
+                                <i class="fa-solid fa-share-nodes"></i> Ulashish
+                            </button>
+                        </div>
+						<a href="https://ajsp.uz/files/issue2026/Sugorish_texnolog_erlar_mel.pdf" class="btn-pdf-action btn-mobile-only" target="_blank" title="To'liq ko'rish">
+							<i class="fa-solid fa-eye" style="color: var(--accent-cyan);"></i>Maqolani ko'rish
+							</a>
+                    </div>
+
+                    <div class="pdf-viewer-wrapper">
+						<iframe
+                            src="https://ajsp.uz/files/issue2026/Sugorish_texnolog_erlar_mel.pdf#view" 
+                            width="100%" 
+                            height="100%" 
+                            style="border: none;"
+                            allow="autoplay"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <footer>&copy; 2026 Academic Journal of Science and Progress. Barcha huquqlar himoyalangan.</footer>
+
+    <script src="theme.js"></script>
+    <script>
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href);
+            alert("Maqola havolasi nusxalandi!");
+        }
+    </script>
+	<!-- Скрипт просмотров Supabase -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const path = window.location.pathname;
+            const articleId = path.substring(path.lastIndexOf('/') + 1).replace('.html', '') || 'index';
+
+            const SUPABASE_URL = "https://tabujqjxxxdlkvlgbxqt.supabase.co";
+            const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_JnNTmBzndZ5C9TQ2JpWA_w_P6YgOCQl"; // Вставь сюда свой ключ (sb_publishable_...)
+
+            fetch(`${SUPABASE_URL}/rest/v1/rpc/increment_view`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'apikey': SUPABASE_PUBLISHABLE_KEY,
+                    'Authorization': `Bearer ${SUPABASE_PUBLISHABLE_KEY}`
+                },
+                body: JSON.stringify({ target_article_id: articleId })
+            })
+            .then(response => response.json())
+            .then(views => {
+                const viewCountEl = document.getElementById('view-count');
+                if (viewCountEl && views !== undefined) {
+                    viewCountEl.textContent = views;
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка при обновлении просмотров:', error);
+            });
+        });
+    </script>
+</body>
+</html>
