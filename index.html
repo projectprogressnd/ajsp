@@ -58,6 +58,18 @@
                     <div class="metric-box"><div class="metric-value">Crossref DOI</div><div class="metric-label">Raqamli identifikatsiya</div></div>
                 </div>
             </section>
+			<!-- БЛОК ДЛЯ ПОСЛЕДНИХ СТАТЕЙ -->
+			<section class="card">
+    <h2><i class="fa-solid fa-file-lines"></i> So'nggi nashr etilgan maqolalar</h2>
+    <!-- Контейнер, куда скрипт автоматически вставит статьи -->
+    <div class="recent-articles-list" id="recent-articles-container">
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Maqolalar yuklanmoqda...</p>
+    </div>
+
+    <div style="margin-top: 20px; text-align: right;">
+        <a href="archive.html" style="font-size: 0.9rem; font-weight: 600; color: var(--accent-cyan);">Barcha arxivni ko'rish <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+    </div>
+</section>
         </main>
         <aside>
             <div class="card">
@@ -71,5 +83,45 @@
 
     <footer>&copy; 2026 Academic Journal of Science and Progress. Project Progress. Barcha huquqlar himoyalangan.</footer>
     <script src="theme.js"></script>
+	<!-- СКРИПТ АВТОМАТИЧЕСКОЙ ЗАГРУЗКИ СТАТЕЙ ИЗ articles.json -->
+    <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+        try {
+            const response = await fetch('articles.json');
+            if (!response.ok) throw new Error('Network response was not ok');
+            
+            const articles = await response.json();
+            
+            // Сортируем по дате (от новых к старым) и берем первые 5
+            articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+            const latestArticles = articles.slice(0, 5);
+            
+            const container = document.getElementById('recent-articles-container');
+            if (!container) return;
+            
+            if (latestArticles.length === 0) {
+                container.innerHTML = '<p style="color: var(--text-muted); font-size: 0.9rem;">Hozircha maqolalar mavjud emas.</p>';
+                return;
+            }
+            
+            container.innerHTML = latestArticles.map((art, index, arr) => `
+                <article class="article-item" style="padding: 15px 0; ${index !== arr.length - 1 ? 'border-bottom: 1px solid var(--border-color);' : ''}">
+                    <div style="font-size: 0.8rem; color: var(--accent-cyan); margin-bottom: 4px; font-weight: 600;">${art.issue} | DOI: ${art.doi}</div>
+                    <h3 style="font-size: 1.050rem; margin-bottom: 6px; border: none; padding: 0;">
+                        <a href="${art.url}" style="color: var(--primary-navy);">${art.title}</a>
+                    </h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Mualliflar: ${art.authors}</p>
+                </article>
+            `).join('');
+            
+        } catch (error) {
+            console.error("Maqolalarni yuklashda xatolik:", error);
+            const container = document.getElementById('recent-articles-container');
+            if (container) {
+                container.innerHTML = '<p style="color: var(--text-muted); font-size: 0.9rem;">Maqolalarni yuklab boʻlmadi.</p>';
+            }
+        }
+    });
+    </script>
 </body>
 </html>
