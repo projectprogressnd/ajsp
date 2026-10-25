@@ -1,16 +1,50 @@
 [
   {
     "title": "Chop etilgan maqolalar",
-    "url": "article102026/article_22102026.html",
-    "date": "2026-10-25",
-    "doi": "10.5281/ajsp.2026.1001",
-    "authors": "F. I. O."
+    "date": "2026-10-16",
+    "issue": "2026-yil, 10-son",
+    "doi": "10.5281/zenodo.xxxxxx",
+    "authors": "Muallif ko'rsatilmagan",
+    "url": "issue102026.html"
   },
   {
-    "title": "Chop etilgan maqolalar",
-    "url": "article102026/article_23102026.html",
+    "title": "EVALUATION OF THE IMPACT OF CHANNEL DEFORMATIONS ON THE RELIABILITY OF OBSERVATION DATA AT THE QIPCHOQ GAUGING STATION",
     "date": "2026-10-25",
-    "doi": "10.5281/ajsp.2026.1001",
-    "authors": "F. I. O."
+    "issue": "2026-yil, 10-son",
+    "doi": "https://doi.org/10.5281/zenodo.23553230",
+    "authors": "Jurayev Bahrom Bahriddinovich",
+    "url": "article102026/article_102026.html"
+  },
+  {
+    "title": "SUG‘ORISH TEXNOLOGIYALARINING YERLARNING MELIORATIV HOLATIGA TA’SIRI",
+    "date": "2026-10-25",
+    "issue": "2026-yil, 10-son",
+    "doi": "https://doi.org/10.5281/zenodo.23558126",
+    "authors": "O‘razkeldiyev Abduvoxid Baxtiyarovich",
+    "url": "article102026/article_16102026.html"
+  },
+  {
+    "title": "ИССЛЕДОВАНИЕ ПРИМЕНЕНИЯ БИОТЕХНОЛОГИЙ ПРИ ВЫРАЩИВАНИИ КУЛЬТУР НА ЗАСОЛЕННЫХ ЗЕМЛЯХ УЗБЕКИСТАНА",
+    "date": "2026-10-25",
+    "issue": "2026-yil, 10-son",
+    "doi": "https://doi.org/10.5281/zenodo.23557646",
+    "authors": "Широкова Юлия Илларионовна, Палуашова Гаухарай Калбаевна",
+    "url": "article102026/article_20102026.html"
+  },
+  {
+    "title": "МАТЕМАТИЧЕСКАЯ МОДЕЛЬ ДВИЖЕНИЯ РЕЧНОГО ПОТОКА В ЗОНЕ БЕСПЛОТИННЫХ ВОДОЗАБОРОВ",
+    "date": "2026-10-25",
+    "issue": "2026-yil, 10-son",
+    "doi": "https://doi.org/10.5281/zenodo.23557389",
+    "authors": "Далабаев У., Умарова Ш., Икрамова М.Р.,",
+    "url": "article102026/article_22102026.html"
+  },
+  {
+    "title": "SUV KAM, O'RTACHA SUVLILIK VA SUV KO'P YILLAR UCHUN AMUDARYO SUV OMBORLARINING OPTIMAL ISH REJIMI",
+    "date": "2026-10-25",
+    "issue": "2026-yil, 10-son",
+    "doi": "https://doi.org/10.5281/zenodo.23554647",
+    "authors": "Ikramova Malika Rahimberdiyevna",
+    "url": "article102026/article_23102026.html"
   }
 ]
