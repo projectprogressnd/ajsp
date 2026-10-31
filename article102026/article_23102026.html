@@ -285,15 +285,10 @@
                 body: JSON.stringify({ target_article_id: articleId })
             })
             .then(response => response.json())
-            .then(data => {
+            .then(views => {
                 const viewCountEl = document.getElementById('view-count');
-                if (viewCountEl) {
-                    // Если бэкенд возвращает число, объект или массив — извлекаем значение
-                    let count = data;
-                    if (typeof data === 'object' && data !== null) {
-                        count = Object.values(data)[0] ?? data[0] ?? 0;
-                    }
-                    viewCountEl.textContent = count;
+                if (viewCountEl && views !== undefined) {
+                    viewCountEl.textContent = views;
                 }
             })
             .catch(error => {
