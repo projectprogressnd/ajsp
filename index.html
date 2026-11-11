@@ -16,6 +16,66 @@
 	<!-- styles -->
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="style.css">
+	<!-- styles for indexing START -->
+    <style>
+        .indexing-card {
+            margin-top: 25px;
+        }
+
+        .indexing-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .indexing-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .indexing-item:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-2px);
+            box-shadow: var(--glow-shadow);
+        }
+
+        .indexing-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(2, 132, 199, 0.1);
+            color: var(--accent-cyan);
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .indexing-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .indexing-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+        }
+
+        .indexing-desc {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+    </style>
+	<!-- End of indexing styles -->
 </head>
 <body>
     <header>
@@ -83,6 +143,41 @@
                 <div class="sidebar-item"><span class="sidebar-label">Tillar:</span><span class="sidebar-val">UZ / EN / RU</span></div>
                 <div class="sidebar-item"><span class="sidebar-label">ISSN:</span><span class="sidebar-val" style="color: var(--accent-cyan);">3162-1732</span></div>
             </div>
+			<!-- index block start -->
+            <div class="card indexing-card">
+                <h3><i class="fa-solid fa-globe"></i> Xalqaro Indeksatsiya</h3>
+                <div class="indexing-list">
+                    <a href="https://scholar.google.com" target="_blank" class="indexing-item">
+                        <div class="indexing-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div class="indexing-info">
+                            <span class="indexing-name">Google Scholar</span>
+                            <span class="indexing-desc">Ilmiy bazasi</span>
+                        </div>
+                    </a>
+                    <a href="https://journals.indexcopernicus.com" target="_blank" class="indexing-item">
+                        <div class="indexing-icon"><i class="fa-solid fa-book-bookmark"></i></div>
+                        <div class="indexing-info">
+                            <span class="indexing-name">Index Copernicus</span>
+                            <span class="indexing-desc">ICI Journals Master List</span>
+                        </div>
+                    </a>
+                    <a href="https://zenodo.org" target="_blank" class="indexing-item">
+                        <div class="indexing-icon"><i class="fa-solid fa-fingerprint"></i></div>
+                        <div class="indexing-info">
+                            <span class="indexing-name">DOI (Zenodo)</span>
+                            <span class="indexing-desc">Raqamli identifikator</span>
+                        </div>
+                    </a>
+                    <a href="https://doaj.org" target="_blank" class="indexing-item">
+                        <div class="indexing-icon"><i class="fa-solid fa-square-rss"></i></div>
+                        <div class="indexing-info">
+                            <span class="indexing-name">DOAJ</span>
+                            <span class="indexing-desc">Directory of Open Access</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <!-- End of index block -->
         </aside>
     </div>
 
