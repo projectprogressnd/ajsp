@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jurnal ishlab chiqish jarayonida | Academic Journal of Science and Progress</title>
+    <!-- favicon.ico -->
+    <link rel="icon" type="image/x-icon" href="https://ajsp.uz/images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="https://ajsp.uz/images/favicon.ico">
+    <!-- Шрифты и стили сайта -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://ajsp.uz/css/all.min.css">
+    <link rel="stylesheet" href="https://ajsp.uz/style.css">
+    <style>
+        /* === АНИМАЦИИ И СТИЛИ ДЛЯ СТРАНИЦЫ СТАТУСА === */
+        .construction-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            padding: 40px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Мягкое фоновое свечение */
+        .bg-ambient-glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(2, 132, 199, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: floatGlow 8s ease-in-out infinite alternate;
+        }
+
+        body.dark-theme .bg-ambient-glow {
+            background: radial-gradient(circle, rgba(0, 242, 254, 0.08) 0%, transparent 70%);
+        }
+
+        .status-card {
+            max-width: 780px;
+            width: 100%;
+            text-align: center;
+            padding: 50px 40px;
+            position: relative;
+            z-index: 2;
+            animation: cardEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Пульсация точки в бейдже */
+        .pulse-dot {
+            animation: pulseRing 2s infinite;
+        }
+
+        /* Орбитальная анимация вокруг центральной иконки */
+        .orbit-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .orbit-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px dashed var(--accent-cyan);
+            opacity: 0.4;
+        }
+
+        .orbit-ring-outer {
+            width: 120px;
+            height: 120px;
+            animation: spinClockwise 14s linear infinite;
+        }
+
+        .orbit-ring-inner {
+            width: 90px;
+            height: 90px;
+            border-style: solid;
+            border-color: transparent var(--accent-cyan) transparent var(--accent-cyan);
+            opacity: 0.7;
+            animation: spinCounterClockwise 8s linear infinite;
+        }
+
+        .orbit-satellite {
+            position: absolute;
+            top: -4px;
+            left: 50%;
+            width: 8px;
+            height: 8px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-cyan);
+            transform: translateX(-50%);
+        }
+
+        .center-emblem {
+            width: 60px;
+            height: 60px;
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: var(--accent-cyan);
+            box-shadow: var(--glow-shadow);
+            animation: gentleFloat 3s ease-in-out infinite alternate;
+        }
+
+        .status-title {
+            font-size: 2rem;
+            color: var(--primary-navy);
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .status-desc {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 620px;
+            margin: 0 auto 32px;
+        }
+
+        /* Анимированный прогресс-бар */
+        .progress-section {
+            max-width: 540px;
+            margin: 0 auto 35px;
+            text-align: left;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+            margin-bottom: 8px;
+        }
+
+        .progress-header span:last-child {
+            color: var(--accent-cyan);
+        }
+
+        .progress-track {
+            width: 100%;
+            height: 10px;
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 78%;
+            background: linear-gradient(90deg, #0284c7, #38bdf8);
+            border-radius: 20px;
+            position: relative;
+            animation: fillProgress 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        body.dark-theme .progress-fill {
+            background: linear-gradient(90deg, #0284c7, #00f2fe);
+            box-shadow: 0 0 12px rgba(0, 242, 254, 0.5);
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.4),
+                transparent
+            );
+            animation: shimmer 2s infinite;
+        }
+
+        /* Этапы работы */
+        .stages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 35px;
+            text-align: left;
+        }
+
+        .stage-box {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .stage-box:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-cyan);
+        }
+
+        .stage-icon {
+            color: var(--accent-cyan);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .stage-title {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--primary-navy);
+            margin-bottom: 4px;
+        }
+
+        .stage-status {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .btn-primary-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 26px;
+            background: var(--accent-cyan);
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--glow-shadow);
+        }
+
+        body.dark-theme .btn-primary-action {
+            color: #070d19;
+        }
+
+        .btn-primary-action:hover {
+            transform: translateY(-2px);
+            opacity: 0.92;
+        }
+
+        /* Ключевые кадры анимаций */
+        @keyframes spinClockwise {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes spinCounterClockwise {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0deg); }
+        }
+
+        @keyframes pulseRing {
+            0% { box-shadow: 0 0 0 0 rgba(2, 132, 199, 0.7); }
+            70% { box-shadow: 0 0 0 8px rgba(2, 132, 199, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(2, 132, 199, 0); }
+        }
+
+        @keyframes gentleFloat {
+            from { transform: translateY(-3px); }
+            to { transform: translateY(3px); }
+        }
+
+        @keyframes floatGlow {
+            from { transform: translate(-30px, -20px) scale(0.95); }
+            to { transform: translate(30px, 20px) scale(1.05); }
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes fillProgress {
+            from { width: 0%; }
+            to { width: 78%; }
+        }
+
+        @keyframes cardEntrance {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .stages-grid { grid-template-columns: 1fr; }
+            .status-card { padding: 35px 20px; }
+            .status-title { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo-area">
+                <img src="https://ajsp.uz/images/logo.svg" alt="AJSP Logo" style="height: 42px; width: auto;">
+                <div>
+                    <div class="brand-title">Academic Journal</div>
+                    <div class="brand-subtitle">Science & Progress</div>
+                </div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="/">Bosh sahifa</a></li>
+                    <li><a href="https://ajsp.uz/about.html">Jurnal haqida</a></li>
+                    <li><a href="https://ajsp.uz/authors.html">Mualliflarga</a></li>
+                    <li><a href="https://ajsp.uz/archive.html">Arxiv</a></li>
+                    <li><a href="https://ajsp.uz/payment.html">To'lov</a></li>
+                    <li><a href="https://ajsp.uz/contact.html">Aloqa</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="construction-wrapper">
+        <div class="bg-ambient-glow"></div>
+
+        <div class="card status-card">
+            <div class="status-badge">
+                <span class="pulse-dot"></span>
+                TEXNIK YANGILANISH &amp; TAYYORGARLIK
+            </div>
+
+            <!-- Анимированная орбитальная эмблема -->
+            <div class="orbit-container">
+                <div class="orbit-ring orbit-ring-outer">
+                    <div class="orbit-satellite"></div>
+                </div>
+                <div class="orbit-ring orbit-ring-inner"></div>
+                <div class="center-emblem">
+                    <i class="fa-solid fa-atom"></i>
+                </div>
+            </div>
+
+            <h1 class="status-title">Jurnalning yangi bo'limi ishlab chiqilmoqda</h1>
+            <p class="status-desc">
+                Hurmatli mualliflar va o'quvchilar! <strong>Academic Journal of Science and Progress</strong> (ISSN: 3162-1732) platformasining ushbu bo'limi hozirda shakllantirilmoqda va ilmiy ma'lumotlar bazalari bilan integratsiya qilinmoqda.
+            </p>
+
+            <!-- Прогресс-бар -->
+            <div class="progress-section">
+                <div class="progress-header">
+                    <span>Platformani ishga tushirish darajasi</span>
+                    <span>78%</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+
+            <!-- Карточки этапов -->
+            <div class="stages-grid">
+                <div class="stage-box">
+                    <div class="stage-icon"><i class="fa-solid fa-circle-check"></i></div>
+                    <div class="stage-title">ISSN &amp; Arxiv</div>
+                    <div class="stage-status">Ro'yxatdan o'tkazilgan va faol</div>
+                </div>
+                <div class="stage-box">
+                    <div class="stage-icon"><i class="fa-solid fa-spinner fa-spin"></i></div>
+                    <div class="stage-title">Indeksatsiya</div>
+                    <div class="stage-status">Xalqaro bazalar bilan ulanmoqda</div>
+                </div>
+                <div class="stage-box">
+                    <div class="stage-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <div class="stage-title">Yangi son</div>
+                    <div class="stage-status">Maqolalar tahrir qilinmoqda</div>
+                </div>
+            </div>
+
+            <a href="https://ajsp.uz/contact.html" class="btn-primary-action">
+                <i class="fa-solid fa-paper-plane"></i> Tahririyat bilan bog'lanish
+            </a>
+        </div>
+    </main>
+
+    <footer>&copy; 2026 Academic Journal of Science and Progress. Barcha huquqlar himoyalangan.</footer>
+
+    <script src="theme.js"></script>
+</body>
+</html>
